@@ -38,7 +38,7 @@ def create_global_logger(log_level, log_file=None):
     c_handler = logging.StreamHandler(stream=sys.stdout)
     c_handler.setLevel(log_level)
 
-    c_format = logging.Formatter("[%(asctime)s][%(name)s][%(levelname)s][%(message)s]")
+    c_format = logging.Formatter("[%(asctime)s][%(name)s][%(levelname)s][%(pathname)s:%(funcName)s:%(lineno)s][%(message)s]")
     c_handler.setFormatter(c_format)
 
     logger.addHandler(c_handler)
@@ -48,7 +48,7 @@ def create_global_logger(log_level, log_file=None):
         f_handler = logging.FileHandler(log_file)
         f_handler.setLevel(logging.DEBUG)
         f_format = logging.Formatter(
-            "[%(asctime)s][%(name)s][%(levelname)s][%(message)s]"
+            "[%(asctime)s][%(name)s][%(levelname)s][%(pathname)s:%(funcName)s:%(lineno)s][%(message)s]"
         )
         f_handler.setFormatter(f_format)
         logger.addHandler(f_handler)
@@ -64,7 +64,7 @@ def create_custom_logger(log_name, log_level, stream=None, log_file=None):
         c_handler = logging.StreamHandler(stream=stream)
         c_handler.setLevel(log_level)
 
-        c_format = logging.Formatter("[%(asctime)s][%(name)s][%(levelname)s][%(message)s]")
+        c_format = logging.Formatter("[%(asctime)s][%(name)s][%(levelname)s][%(pathname)s:%(funcName)s:%(lineno)s][%(message)s]")
         c_handler.setFormatter(c_format)
 
         logger.addHandler(c_handler)
@@ -74,7 +74,7 @@ def create_custom_logger(log_name, log_level, stream=None, log_file=None):
         f_handler = logging.FileHandler(log_file)
         f_handler.setLevel(logging.DEBUG)
         f_format = logging.Formatter(
-            "[%(asctime)s][%(name)s][%(levelname)s][%(message)s]"
+            "[%(asctime)s][%(name)s][%(levelname)s][%(pathname)s:%(funcName)s:%(lineno)s][%(message)s]"
         )
         f_handler.setFormatter(f_format)
         logger.addHandler(f_handler)
